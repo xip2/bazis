@@ -1,0 +1,12 @@
+Образ UBUNTU server 22.04 не содержит свежий ssh. Пришлось устанавливать. 
+ sudo apt update
+ sudo apt install openssh-server
+ sudo systemctl enable --now ssh
+ и потом править конфиг, чтобы заходить через WSL или putty по сети. 
+-- Не забываем отключить VPN и посмотреть правильный IP.
+
+sudo nano /etc/ssh/sshd_config
+         PermitRootLogin yes
+         PasswordAuthentication yes
+
+         
